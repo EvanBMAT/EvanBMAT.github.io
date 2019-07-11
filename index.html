@@ -1,1 +1,58 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BMAT Chatbot</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./fancybox-masterV3/jquery-3.3.1.min.js"></script>
+<script src="./fancybox-masterV3/fancybox-master/dist/jquery.fancybox.js"></script>
+<link rel="stylesheet" href="./fancybox-masterV3/fancybox-master/dist/jquery.fancybox.min.css" />
+<script>
+$().fancybox({
+    selector : '.messages-container a:visible',
+    toolbar  : false,
+	smallBtn : true,
+	iframe : {
+		preload : false
+	}
+});
+
+</script>
+<body>
+<div id="webchat"/>
+<script src="Webchat_fancyV3.js"></script>
+<script>
+  WebChat.default.init({
+    selector: "#webchat",
+    initPayload: "/greet",
+    interval: 1000, // 1000 ms between each messages
+    customData: {"userId": "123"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+    socketUrl: "http://046d0e9b.ngrok.io",
+    socketPath: "/socket.io/",
+    title: "BMAT 🤖",
+    subtitle: '"Help ! I need somebody Help ! ♫"',
+    inputTextFieldHint: "Type a message...",
+    connectingText: "Waiting for server...",
+    hideWhenNotConnected: true,
+    fullScreenMode: false,
+    profileAvatar: "logo.jpg",
+    openLauncherImage: 'open_chat_logo.svg',
+    closeLauncherImage: 'close_chat_logo.svg',
+    params: {
+      images: {
+        dims: {
+          width: 300,
+          height: 200,
+        }
+      },
+      storage: "session"
+    }
+  })
+</script>
+
+<a data_fancybox href="https://support.bmat.com/en/support/home">
+	BMAT page
+</a>
+</body>
+
+</html>
