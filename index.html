@@ -13,7 +13,7 @@ $().fancybox({
     toolbar  : false,
 	smallBtn : true,
 	iframe : {
-		preload : true
+		preload : false
 	}
 });
 
@@ -26,14 +26,7 @@ $().fancybox({
 <div id="webchat"/>
 <script src="Webchat_fancyV3.js"></script>
 <script>
-  document.cookie = "XSRF-TOKEN = faketoken25ef45ez4f5gf45g45rz5g4rz4545z4e4g5r4"
-  function getUserName(){
-    return document.querySelector(".layout-3col-header__user-data-username").innerText
-  }
-  function getCookie(name) {
-	    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-	    return v ? v[2] : null;
-	}
+
   WebChat.default.init({
     selector: "#webchat",
     initPayload: "/greet",
